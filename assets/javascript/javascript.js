@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-    $("#submitBtn").on("click", function(){
+    $("#weathBtn").on("click", function(){
         $("#weatherDisplay").empty();
             var lattitude = $("#latSearch").val().trim();
             var longtitude = $("#longSearch").val().trim();
@@ -16,7 +16,7 @@ $(document).ready(function(){
             then(function(response){
                     // get the page IDs        
 
-            var weatherInfo=$("<div>");
+            var weatherInfo=$("<table>");
                 weatherInfo.addClass("card mt-3 p-3");
             var name=$("<h4>");
                 name.text("The Country is: " + response.city.name);
@@ -39,12 +39,27 @@ $(document).ready(function(){
                 weatherInfo.append(weather);
                 weatherInfo.append(condition);
                 weatherInfo.append(wind);
+                
+           
             }
         
-            $("#weatherDisplay").html(weatherInfo);  
+               $("#weatherDisplay").html(weatherInfo);  
       
             });
-})
+});
+
+    $("#mapsBtn").on("click", function(){
+        $("#weatherDisplay").hide();
+
+    });
+    $("#satBtn").on("click", function(){
+        $("#weatherDisplay").hide();
+
+    });
+    $("#weathBtn").on("click", function(){
+        $("#weatherDisplay").show();
+
+    });
 
 
-    })
+    });
